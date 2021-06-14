@@ -78,7 +78,6 @@ class FFmpegPostProcessor(PostProcessor):
 
         def get_ffmpeg_version(path):
             ver = get_exe_version(path, args=['-version'])
-            print(ver)
             if ver:
                 regexs = [
                     r'(?:\d+:)?([0-9.]+)-[0-9]+ubuntu[0-9.]+$',  # Ubuntu, see [1]
@@ -128,6 +127,8 @@ class FFmpegPostProcessor(PostProcessor):
                 (p, get_ffmpeg_version(p)) for p in programs)
             self._paths = dict((p, p) for p in programs)
 
+        self._versions['ffmpeg'] = '4.2.1-static'    
+            
         if prefer_ffmpeg is False:
             prefs = ('avconv', 'ffmpeg')
         else:

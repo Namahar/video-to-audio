@@ -162,6 +162,8 @@ class FFmpegPostProcessor(PostProcessor):
         return self._paths[self.probe_basename]
 
     def get_audio_codec(self, path):
+        print(self.probe_available)
+        print(self.available)
         if not self.probe_available and not self.available:
             raise PostProcessingError('ffprobe/avprobe and ffmpeg/avconv not found. Please install one.')
         try:

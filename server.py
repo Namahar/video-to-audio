@@ -12,7 +12,7 @@ def formData():
    print(url)
 
    # make youtube-dl command
-   command = 'python3 youtube_dl/__main__.py -x --audio-format "mp3" --audio-quality 0 --ffmpeg-location ffmpeg-4.2.1/ffmpeg/ffmpeg ' + url
+   command = 'python3 youtube_dl/__main__.py -x --audio-format "mp3" --audio-quality 0 --ffmpeg-location ffmpeg-4.2.1/ffmpeg ' + url
 
    os.system(command)
 

@@ -132,6 +132,7 @@ class FFmpegPostProcessor(PostProcessor):
         else:
             prefs = ('ffmpeg', 'avconv')
         for p in prefs:
+            print(self._versions)
             if self._versions[p]:
                 self.basename = p
                 break
@@ -147,6 +148,7 @@ class FFmpegPostProcessor(PostProcessor):
 
     @property
     def available(self):
+        print(self.basename)
         return self.basename is not None
 
     @property

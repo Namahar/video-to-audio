@@ -275,7 +275,7 @@ class FFmpegExtractAudioPP(FFmpegPostProcessor):
 
         #filecodec = self.get_audio_codec(path)
         # self.get_audio_codec not working on heroku
-        filecode = 'opus'
+        filecodec = 'opus'
         if filecodec is None:
             raise PostProcessingError('WARNING: unable to obtain file audio codec with ffprobe')
 

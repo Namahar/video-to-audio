@@ -3783,7 +3783,6 @@ def get_exe_version(exe, args=['--version'],
         # STDIN should be redirected too. On UNIX-like systems, ffmpeg triggers
         # SIGTTOU if youtube-dl is run in the background.
         # See https://github.com/ytdl-org/youtube-dl/issues/955#issuecomment-209789656
-        print(exe)
         out, _ = subprocess.Popen(
             [encodeArgument(exe)] + args,
             stdin=subprocess.PIPE,

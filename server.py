@@ -17,7 +17,7 @@ def formData():
          'preferredcodec': 'mp3',
          'preferredquality': '192'
       }],
-      'ffmpeg_location': 'ffmpeg-4.2.1'
+      'ffmpeg_location': 'ffmpeg-4.2.1/ffmpeg'
    }
 
    with youtube_dl.YoutubeDL(opts) as ytdl:

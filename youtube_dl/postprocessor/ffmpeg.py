@@ -126,7 +126,8 @@ class FFmpegPostProcessor(PostProcessor):
             self._versions = dict(
                 (p, get_ffmpeg_version(p)) for p in programs)
             self._paths = dict((p, p) for p in programs)
-
+        
+        # hardcode version -> not working on heroku
         self._versions['ffmpeg'] = '4.2.1-static'    
             
         if prefer_ffmpeg is False:
@@ -272,7 +273,9 @@ class FFmpegExtractAudioPP(FFmpegPostProcessor):
     def run(self, information):
         path = information['filepath']
 
-        filecodec = self.get_audio_codec(path)
+        #filecodec = self.get_audio_codec(path)
+        # self.get_audio_codec not working on heroku
+        filecode = 'opus'
         if filecodec is None:
             raise PostProcessingError('WARNING: unable to obtain file audio codec with ffprobe')
 

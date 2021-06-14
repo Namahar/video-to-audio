@@ -78,6 +78,7 @@ class FFmpegPostProcessor(PostProcessor):
 
         def get_ffmpeg_version(path):
             ver = get_exe_version(path, args=['-version'])
+            print(ver)
             if ver:
                 regexs = [
                     r'(?:\d+:)?([0-9.]+)-[0-9]+ubuntu[0-9.]+$',  # Ubuntu, see [1]
@@ -148,7 +149,6 @@ class FFmpegPostProcessor(PostProcessor):
 
     @property
     def available(self):
-        print(self.basename)
         return self.basename is not None
 
     @property
@@ -164,8 +164,6 @@ class FFmpegPostProcessor(PostProcessor):
         return self._paths[self.probe_basename]
 
     def get_audio_codec(self, path):
-        print(self.probe_available)
-        print(self.available)
         if not self.probe_available and not self.available:
             raise PostProcessingError('ffprobe/avprobe and ffmpeg/avconv not found. Please install one.')
         try:
